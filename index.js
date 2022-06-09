@@ -50,9 +50,9 @@ app.get('/audio/:audio', async (req, res) => {
         let info = await ytdl.getInfo(url);
         console.log(info.videoDetails.title);
         const title = slugify(info.videoDetails.title, {
-            replacement: '-',
+            replacement: ' ',
             remove: /[*+~.()'"!:@]/g,
-            lower: true,
+            lower: false,
             strict: false
         });
         res.header('Content-Disposition', `attachment; filename="${title}.mp3"`);
@@ -82,7 +82,7 @@ app.get('/video/:video', async (req, res) => {
         const title = slugify(info.videoDetails.title, {
             replacement: ' ',
             remove: /[*+~.()'"!:@]/g,
-            lower: true,
+            lower: false,
             strict: false
         });
         res.header('Content-Disposition', `attachment; filename="${title}.mp4"`);
@@ -108,9 +108,9 @@ app.get('/hd/:video', function(req, res) {
             const High_q = response.body.split('hd_src:"')[1].split('",sd_src:"')[0];
             const seo_title = response.body.split('<title id="pageTitle">')[1].split('</title>')[0];
             const title = slugify(seo_title, {
-                replacement: '-',
+                replacement: ' ',
                 remove: /[*+~.()'"!:@]/g,
-                lower: true,
+                lower: false,
                 strict: true
             });
             console.log(High_q || 'null');
@@ -135,9 +135,9 @@ app.get('/low/:video', function(req, res) {
             const Low_q = response.body.split('sd_src:"')[1].split('",hd_tag')[0];
             const seo_title = response.body.split('<title id="pageTitle">')[1].split('</title>')[0];
             const title = slugify(seo_title, {
-                replacement: '-',
+                replacement: ' ',
                 remove: /[*+~.()'"!:@]/g,
-                lower: true,
+                lower: false,
                 strict: true
             });
             console.log(Low_q || 'null');
