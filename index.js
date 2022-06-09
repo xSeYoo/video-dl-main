@@ -80,7 +80,7 @@ app.get('/video/:video', async (req, res) => {
         let info = await ytdl.getInfo(url);
         console.log(info.videoDetails.title);
         const title = slugify(info.videoDetails.title, {
-            replacement: '-',
+            replacement: ' ',
             remove: /[*+~.()'"!:@]/g,
             lower: true,
             strict: false

@@ -26,7 +26,7 @@ const YT_VIDEO = "https://www.youtube.com/watch?v=bKDdT_nyP54";
         }
         let info = await ytdl.getInfo(url);
         const title = slugify(info.videoDetails.title, {
-            replacement: '-',
+            replacement: ' ',
             remove: /[*+~.()'"!:@]/g,
             lower: true,
             strict: false
