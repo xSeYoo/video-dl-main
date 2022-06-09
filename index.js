@@ -51,7 +51,7 @@ app.get('/audio/:audio', async (req, res) => {
         console.log(info.videoDetails.title);
         const title = slugify(info.videoDetails.title, {
             replacement: ' ',
-            remove: /[*+~.()|'"!:@]/g,
+            remove: /[*+~.()'"!:@]/g,
             lower: false,
             strict: false
         });
@@ -81,7 +81,7 @@ app.get('/video/:video', async (req, res) => {
         console.log(info.videoDetails.title);
         const title = slugify(info.videoDetails.title, {
             replacement: ' ',
-            remove: /[*+~.()|'"!:@]/g,
+            remove: /[*+~.()'"!:@]/g,
             lower: false,
             strict: false
         });
@@ -109,7 +109,7 @@ app.get('/hd/:video', function(req, res) {
             const seo_title = response.body.split('<title id="pageTitle">')[1].split('</title>')[0];
             const title = slugify(seo_title, {
                 replacement: ' ',
-                remove: /[*+~.()|'"!:@]/g,
+                remove: /[*+~.()'"!:@]/g,
                 lower: false,
                 strict: true
             });
